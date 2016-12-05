@@ -1,5 +1,3 @@
-package lesson2911;
-
 import java.util.Random;
 
 public class Employee {
@@ -19,7 +17,7 @@ public class Employee {
 		return id;
 	}
 
-	public String GetFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -59,21 +57,76 @@ public class Employee {
 	public int raiseSalary() {
 		return salary - (salary / 100);
 	}
-	
-	public Employee[] ObjArray(int n) {
+
+	//public Employee[] ObjArray(int n) {
+	//Random rand = new Random();
+	//Employee[] Employees = new Employee[n];
+	//for (int i = 0; i < n; i++) {
+	//int ID = rand.nextInt(99) + 1;
+	//int sal;
+	//sal = rand.nextInt(5000) + 1;
+	//Employees[i].setId(ID);
+	//Employees[i].setSalary(sal);
+	//}
+	//return Employees;
+	//}
+	public static void sort(Employee employee[]) {
+		// create buckets
 		Random rand = new Random();
-		Employee[] Employees = new Employee[n];
-		for (int i = 0; i < n; i++) {
-		int ID = rand.nextInt(100) + 1;
-		int SALLARY = rand.nextInt(5000) + 1;
-		Employees[i].setId(ID);
-		Employees[i].setSalary(SALLARY);
+		int counter[] = new int [employee.length];
+		// fill buckets
+		for(int i = 0;i < employee.length - 1; i++){
+			int ID = rand.nextInt(99) + 1;
+			int sal;
+			sal = rand.nextInt(5000) + 1;
+			employee[i].setId(ID);
+			employee[i].setSalary(sal);
 		}
-		return Employees;
+		for(int i = 0; i < employee.length; i++){
+			counter[employee[i].getId()] = counter[employee[i].getId()] + 1;
+		}
+		// sort array
+		int ndx = 0;
+		for (int i = 0; i < counter.length; i++) {
+			while (0 < counter[i]) {
+				employee[ndx++].setId(i);
+			}
+		}
+	}
+	public static void search(Employee array[]){
+		Random rand = new Random();
+		int n;
+		int id;
+
+		for(int i = 0;i < array.length; i ++) {
+			n = rand.nextInt(3);
+			id = rand.nextInt(100);
+			if(n == 1){
+				array[i].setFirstName("Danylo");
+				array[i].setId(id);
+			}
+			else if(n == 0){
+				array[i].setFirstName("Eric");
+				array[i].setId(id);
+			}
+			else if(n == 2){
+				array[i].setFirstName("Taras");
+				array[i].setId(id);
+			}
+			else if(n == 3){
+				array[i].setFirstName("Bob");
+				array[i].setId(id);
+			}
+		}
+		for(int i = 0; i < 100; i++){
+			if(array[i].getFirstName() == "Danylo"){
+				System.out.println("id : " + array[i].getId() + " Name : " + array[i].getFirstName());
+			}
+		}
 	}
 
 	public String toString(){
-        return "Employee[" +" " + "id = " + id + ", " + "name = " + firstName 
-        + " " + secondName + ", " + "salary = " + salary + "]";
-    }
+		return "Employee[" +" " + "id = " + id + ", " + "name = " + firstName
+				+ " " + secondName + ", " + "salary = " + salary + "]";
+	}
 }

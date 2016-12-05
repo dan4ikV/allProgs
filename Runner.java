@@ -1,16 +1,14 @@
-package lesson2911;
-
 import java.util.Random;
+import java.lang.Object;
 
 public class Runner {
 
 	public static void main(String[] args) {
-		Random rand = new Random();
-		int n = rand.nextInt(1000) + 1;
-		Employee[] employees = new Employee[n];
-		for (int i = 0; i < n; i++) {
-			employees[i].ObjArray(n);
+		Employee[] employees = new Employee[100];
+		Employee.search(employees);
+		Employee.sort(employees);
+		for (int i = 0; i < 100; i++) {
+			System.out.println(employees[i].getId());
 		}
 	}
-
 }
