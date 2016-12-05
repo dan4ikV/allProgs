@@ -1,5 +1,3 @@
-package lesson2911;
-
 import java.util.Random;
 
 public class countingsort {

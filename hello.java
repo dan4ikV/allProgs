@@ -1,4 +1,3 @@
-package hello1;
 
 public class hello {
 
